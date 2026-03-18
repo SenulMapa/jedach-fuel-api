@@ -1,0 +1,7 @@
+name = "jedach-fuel-api"
+main = "src/index.ts"
+compatibility_date = "2026-03-18"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+PORT = "3000"
