@@ -60,4 +60,4 @@ PRs welcome. Check the issues tab for what needs work.
 
 ## License
 
-MIT
+Licensed under BSL 1.1. Free for non-commercial use. Partners contact mapasenul@gmail.com for commercial licensing.
