@@ -2,7 +2,11 @@
 
 Open source fuel availability infrastructure for Sri Lanka.
 
-Built by [Jedach](https://github.com/jedach) to solve the fragmented fuel data problem across crowdsourced fuel tracking platforms.
+Built by [Senul Mapa](https://github.com/SenulMapa/SenulMap)(By Jedach) to solve the fragmented fuel data problem across crowdsourced fuel tracking platforms.
+
+## Live API
+
+`https://jedach-fuel-api.mapasenul.workers.dev`
 
 ## What this is
 
@@ -17,9 +21,38 @@ The backend engine powering Sri Lanka's fuel data. Instead of multiple apps with
 - Nearby station filtering via lat/lng + radius
 - Queue length reporting
 
+## Endpoints
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| GET | `/health` | None | Health check |
+| GET | `/api/stations` | API Key | All stations with fuel status |
+| GET | `/api/stations?lat=6.91&lng=79.85&radius=5000` | API Key | Nearby stations |
+| GET | `/api/stations/:id` | API Key | Single station |
+| POST | `/api/stations` | API Key | Add a station |
+| POST | `/api/reports` | API Key | Submit a fuel report |
+| GET | `/api/reports/:station_id` | API Key | Recent reports for a station |
+
+## Authentication
+
+All protected routes require an `X-API-Key` header:
+```
+X-API-Key: your-partner-api-key
+```
+
+## Report payload
+```json
+{
+  "station_id": "uuid",
+  "fuel_type": "petrol_92 | petrol_95 | diesel | super_diesel",
+  "status": "available | limited | unavailable",
+  "queue_length": 0
+}
+```
+
 ## Want to integrate?
 
-Open an issue or reach out to get a partner API key and start consuming live fuel data.
+Open an issue or reach out to get a partner API key. Partner reports carry higher trust weight in the engine.
 
 ## Contributing
 
